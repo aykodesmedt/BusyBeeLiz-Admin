@@ -90,7 +90,7 @@
                   <h3>Nr. <?php echo $stof["kleurNummer"]; ?></h3>
                   <p><?php echo $stof["categorie"]; ?></p>
                   <p><?php echo $stof["lengte"]; ?>m x <?php echo $stof["breedte"]; ?>m</p>
-                  <p><?php echo $stof["prijs"] ?>/m</p>
+                  <p><?php echo $stof["prijs"] ?>€/m</p>
                   <div class="resultaat__stofsoort">
                     <span class="tag"><?php echo $stof["stofSoort"]; ?></span>
                     <?php if(!empty($stof["kleur"])){ echo '<span class="tag">' . $stof["kleur"] . '</span>'; } ?>
