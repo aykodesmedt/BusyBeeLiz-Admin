@@ -1,6 +1,6 @@
 <?php
   $onderCategorien = array("Jurken"=>"jurken", "Tops & T-shirts"=>"topsandshirts", "Rokken"=>"rokken", "Truien"=>"truien", "Vesten"=>"vesten", "Broeken"=>"broeken", "Blouses"=>"blouses", "Accessoires"=>"accessoires");
-  $soortenStof = array("Tricot" => "tricot", "Katoen" => "katoen", "Wol" => "wol", "Viscose" => "viscose", "Linnen" => "linnen", "Jeans" => "jeans", "Polyester" => "polyester", "Sweater" => "sweater", "Fleece" => "fleece");
+  $soortenStof = array("Jersey" => 1, "Katoen" => 2, "Katoen Lycra" => 3, "Katoen Tricot" => 4, "Viscose" => 5, "Jeans" => 6, "Polyester" => 7, "Sweater" => 8, "Voile" => 9, "Kant" => 10, "Velours" => 11, "Babyrib" => 12, "Gebreid" => 13, "Punta di Roma" => 14, "French Terry" => 15, "Jassen" => 16, "Overig" => 17);
 ?>
 <button onclick="history.go(-1);" class="backButton" >Overzicht</button>
 <section >

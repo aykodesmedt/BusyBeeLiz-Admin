@@ -1,6 +1,6 @@
 <?php
   $categorien = array("Tops & T-shirts"=>"topsandshirts", "Truien"=>"truien", "Vesten"=>"vesten", "Broeken"=>"broeken", "Accessoires"=>"accessoires");
-  $soortenStof = array("Tricot" => 1, "Katoen" => 2, "Wol" => 3, "Viscose" => 4, "Linnen" => 5, "Jeans" => 6, "Polyester" => 7, "Sweater" => 8, "Fleece" => 9);
+  $soortenStof = array("Jersey" => 1, "Katoen" => 2, "Katoen Lycra" => 3, "Katoen Tricot" => 4, "Viscose" => 5, "Jeans" => 6, "Polyester" => 7, "Sweater" => 8, "Voile" => 9, "Kant" => 10, "Velours" => 11, "Babyrib" => 12, "Gebreid" => 13, "Punta di Roma" => 14, "French Terry" => 15, "Jassen" => 16, "Overig" => 17);
 ?>
 <section>
   <div class="artikelsHeader">

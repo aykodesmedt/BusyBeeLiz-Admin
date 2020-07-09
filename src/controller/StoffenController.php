@@ -3,12 +3,14 @@
 require_once __DIR__ . '/Controller.php';
 require_once './dao/ArtikelDAO.php';
 require_once './dao/StofDAO.php';
+require_once './dao/KleurDAO.php';
 
 class StoffenController extends Controller {
 
   function __construct() {
     $this->artikelDAO = new ArtikelDAO();
     $this->stofDAO = new StofDAO();
+    $this->kleurDAO = new KleurDAO();
   }
 
   public function stoffen() {
@@ -46,6 +48,9 @@ class StoffenController extends Controller {
       $this->_handlePostStof();
       $this->set('stoffen', $this->stofDAO->selectAll());
     }
+
+    $kleuren = $this->kleurDAO->selectAll();
+    $this->set('kleuren', $kleuren);
 
   }
 

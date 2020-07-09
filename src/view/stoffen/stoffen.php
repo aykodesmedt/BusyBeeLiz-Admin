@@ -90,13 +90,17 @@
                   <h3>Nr. <?php echo $stof["kleurNummer"]; ?></h3>
                   <p><?php echo $stof["categorie"]; ?></p>
                   <p><?php echo $stof["lengte"]; ?>m x <?php echo $stof["breedte"]; ?>m</p>
-                  <span class="tag"><?php echo $stof["stofSoort"]; ?></span>
+                  <p><?php echo $stof["prijs"] ?>/m</p>
+                  <div class="resultaat__stofsoort">
+                    <span class="tag"><?php echo $stof["stofSoort"]; ?></span>
+                    <?php if(!empty($stof["kleur"])){ echo '<span class="tag">' . $stof["kleur"] . '</span>'; } ?>
+                  </div>
                 </div>
               </div>
               <div class="div__icons">
-                <a href="index.php?page=editStof&id=<?php echo $stof["id"]; ?>">
+                <!-- <a href="index.php?page=editStof&id=<?php echo $stof["id"]; ?>">
                   <img src="./assets/img/icons/edit.png" alt="" width="18" height="18">
-                </a>
+                </a> -->
                 <a href="index.php?page=stoffen&id=<?php echo $stof["id"]; ?>&action=delete">
                   <img src="./assets/img/icons/delete.png" alt="" width="14" height="18">
                 </a>
@@ -179,7 +183,7 @@
         <div class="inputFieldDivSoort">
           <?php foreach($soortenStof as $soortStof => $index): ?>
             <input type="radio" name="stofSoort" id="radio<?php echo $index; ?>" value="<?php echo $soortStof; ?>" <?php
-              if (!empty($_POST['stofSoort']) && $_POST['stofSoort'] == $soortStof || $soortStof == "Tricot") {
+              if (!empty($_POST['stofSoort']) && $_POST['stofSoort'] == $soortStof || $soortStof == "Jersey") {
                 echo 'checked';
               }
             ?>>
@@ -215,6 +219,37 @@
           <?php
           if (!empty($_POST) && empty($_POST['breedte'])) {
             echo '<span class="error">gelieve een breedte in te vullen</span>';
+          }
+          ?>
+      </div>
+      <div class="boxesGrid">
+        <h3>Kleuren</h3>
+        <div class="inputFieldDivSoort">
+          <?php foreach($kleuren as $kleur): ?>
+            <input type="radio" name="kleur" id="radio<?php echo $kleur["kleur"]; ?>" value="<?php echo $kleur["kleur"]; ?>" <?php
+              if (!empty($_POST['kleur']) && $_POST['kleur'] == $kleur["kleur"] || $kleur["kleur"] == "Rood") {
+                echo 'checked';
+              }
+            ?>>
+            <label for="radio<?php echo $kleur["kleur"]; ?>"><?php echo $kleur["kleur"]; ?></label>
+          <?php endforeach; ?>
+          <?php
+          if (!empty($_POST) && empty($_POST['kleur'])) {
+            echo '<span class="error">gelieve een kleur te selecteren</span>';
+          }
+          ?>
+        </div>
+      </div>
+      <div class="inputFieldDiv2">
+        <label for="prijs">Prijs</label>
+        <input type="text" name="prijs" placeholder="1" value="<?php
+          if (!empty($_POST['prijs'])) {
+            echo $_POST['prijs'];
+          }
+          ?>" />
+          <?php
+          if (!empty($_POST) && empty($_POST['prijs'])) {
+            echo '<span class="error">gelieve een prijs in te vullen</span>';
           }
           ?>
       </div>
