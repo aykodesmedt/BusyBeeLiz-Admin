@@ -23,6 +23,7 @@
   padding: 2.4rem;
   /* height: 48.6rem; */
   min-width: 50rem;
+  max-width: 60rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
