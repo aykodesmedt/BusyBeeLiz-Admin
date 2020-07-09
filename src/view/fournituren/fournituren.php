@@ -1,5 +1,5 @@
 <?php
-  $soortFournituur = array("Garen", "Biaislint", "Ritsen", "Paspel", "Lint", "Knopen", "Elastiek", "Handtas", "Opstrijklabel", "Boord");
+  $soortFournituur = array("Garen", "Biaislint", "Ritsen", "Paspel", "Lint", "Knopen", "Elastiek", "Handtas", "Opstrijklabel", "Boord", "Keperband", "Sierelastiek", "Patroonpapier");
   $formKleuren = array("1"=>"Rood", "2"=>"Blauw", "3"=>"Geel", "4"=>"Zwart", "5"=>"Wit", "6"=>"Groen", "7"=>"Beige", "8"=>"Paars", "9"=>"Bruin");
 ?>
 <section>
@@ -73,7 +73,7 @@
                   <div class="resultaten__div">
                     <div class="fournituur__info__div">
                       <p><?php echo $fournituur["stuks"]; ?> stuks</p>
-                      <p><?php echo $fournituur["lengte"]; ?> cm</p>
+                      <p><?php echo $fournituur["lengte"]; ?></p>
                     </div>
                     <div class="fournituur__icon__div">
                       <a href="index.php?page=editFournituur&action=updateFournituur&id=<?php echo $fournituur['id']; ?>">
