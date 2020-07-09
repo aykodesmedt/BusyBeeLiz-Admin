@@ -3,6 +3,10 @@
 class DAO {
 
   // Properties
+  // private static $dbHost = "localhost";
+	// private static $dbName = "busybeeliz-Admin";
+	// private static $dbUser = "busybeeliz-Admin";
+	// private static $dbPass = "busybeeliz";
   private static $dbHost = "aykodesmedt.be";
 	private static $dbName = "ID276403_busybeeliz";
 	private static $dbUser = "ID276403_busybeeliz";

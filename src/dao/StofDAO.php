@@ -77,8 +77,7 @@ class StofDAO extends DAO {
   public function insert($data){
     $errors = $this->validate($data);
     if (empty($errors)) {
-      // $sql = "INSERT INTO `stoffen` (`categorie`, `image`, `kleurNummer`, `lengte`, `breedte`) VALUES (:categorie, :image, :kleurNummer, :lengte, :breedte)";
-      $sql = "INSERT INTO `stoffen` (`categorie`, `image`, `kleurNummer`, `stofSoort`, `lengte`, `breedte`) VALUES (:categorie, :image, :kleurNummer, :stofSoort, :lengte, :breedte)";
+      $sql = "INSERT INTO `stoffen` (`categorie`, `image`, `kleurNummer`, `stofSoort`, `lengte`, `breedte`, `kleur`, `prijs`) VALUES (:categorie, :image, :kleurNummer, :stofSoort, :lengte, :breedte, :kleur, :prijs)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':categorie', $data['categorie']);
       $stmt->bindValue(':image', $data['image']);
@@ -86,6 +85,8 @@ class StofDAO extends DAO {
       $stmt->bindValue(':stofSoort', $data['stofSoort']);
       $stmt->bindValue(':lengte', $data['lengte']);
       $stmt->bindValue(':breedte', $data['breedte']);
+      $stmt->bindValue(':kleur', $data['kleur']);
+      $stmt->bindValue(':prijs', $data['prijs']);
       if ($stmt->execute()) {
         return $this->selectAll();
       }
@@ -112,6 +113,12 @@ class StofDAO extends DAO {
     }
     if (empty($data['breedte'])) {
       $errors['breedte'] = 'Please enter a breedte';
+    }
+    if (empty($data['kleur'])) {
+      $errors['kleur'] = 'Please enter a kleur';
+    }
+    if (empty($data['prijs'])) {
+      $errors['prijs'] = 'Please enter a prijs';
     }
     return $errors;
   }
