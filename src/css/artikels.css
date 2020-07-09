@@ -1,0 +1,165 @@
+.searchForm {
+  width: 25rem;
+  border-bottom: 0.1rem solid var(--darkgrey);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.searchForm > input {
+  border: none;
+  font-size: 1.6rem;
+  padding-bottom: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.searchButton {
+  border: none;
+}
+
+.artikelsHeader {
+  display: flex;
+  flex-direction: row;
+  width: 95vw;
+}
+
+.artikelsHeader > div {
+  width: 100%;
+  margin-top: 8rem;
+}
+
+.headerTitelSearch {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0 1rem 1rem;
+}
+
+.onderCategorieUl {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.8rem;
+  align-items: center;
+}
+
+.onderCategorie {
+  font-size: 1.8rem;
+  padding: 1rem 1.5rem 0.9rem;
+  text-transform: capitalize;
+}
+
+.kleurenUl {
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: repeat(20, 1fr) 1fr; */
+  /* grid-template-rows: 1fr; */
+  /* background-color: var(--grey); */
+  width: 95vw;
+  margin-top: 3rem;
+  /* vanaf 1160 2 rijen => alles met grid doen! */
+}
+
+.kleurenUl > li {
+  display: flex;
+  margin-bottom: 0.8rem;
+  background-color: var(--grey);
+}
+
+/* .resultatenDiv > a {
+  height: 45rem;
+} */
+
+.kleurenUl > li > a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.8rem;
+  margin: 1rem 1.6rem;
+}
+
+.activeColorFilter {
+  border-bottom: 0.2rem solid black;
+}
+
+.resultatenSection {
+  width: 95vw;
+  padding: 3.2rem;
+}
+
+.resultatenDiv {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+.aantalResultaten {
+  font-size: 1.8rem;
+}
+
+.resultaat > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.resultaatImg {
+  z-index: 1;
+  border-radius: 0.8rem;
+}
+
+.resultaatDeco {
+  position: absolute;
+  z-index: 2;
+  margin-top: 7rem;
+}
+
+.resultaatP > p {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+
+.resultaatDelete {
+  position: absolute;
+  z-index: 2;
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: white;
+  margin-left: 10.6rem;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.output_imageArtikel {
+  width: 7.4rem;
+  height: 10.8rem;
+  margin-bottom: -6rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--blue);
+}
+
+.artikelFileUpload {
+  border: 0.2rem solid var(--blue);
+  width: 7.4rem;
+  height: 10.8rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileUpload__div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

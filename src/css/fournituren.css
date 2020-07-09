@@ -1,0 +1,28 @@
+.resultaten__div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 22rem;
+}
+
+.fournituur__icon__div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fournituur__icon__div > img {
+  margin: .8rem;
+}
+
+.fournituur__info__div {
+  text-transform: lowercase;
+}
+
+.fournituur__info__div > p {
+  margin: 1.5rem 0;
+}
+
+.boxesGrid {
+  border-bottom: .1rem solid var(--darkestgrey);
+}

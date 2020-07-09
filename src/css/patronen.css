@@ -1,0 +1,39 @@
+.patroonFilter > ul {
+  margin-top: 1rem;
+}
+
+.filter__div {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr) 1fr;
+  background-color: var(--grey);
+  width: 95vw;
+  margin-top: 1rem;
+}
+
+.filter__div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.filter__div > div > input {
+  display: none;
+}
+
+.filter__div > div > label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.8rem;
+  padding: 0 1.6rem;
+}
+
+.filter__div > div > input[type='radio']:checked + label {
+  border-bottom: .2rem solid black;
+  padding: 1rem 1.6rem;
+}
+
+.fournituur__info__div > h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}

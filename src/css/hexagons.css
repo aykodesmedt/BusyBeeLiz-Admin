@@ -1,0 +1,251 @@
+.roodHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: red;
+}
+
+.roodHexagon::before,
+.roodHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.roodHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid red;
+}
+
+.roodHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid red;
+}
+
+.blauwHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: blue;
+}
+
+.blauwHexagon::before,
+.blauwHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.blauwHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid blue;
+}
+
+.blauwHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid blue;
+}
+
+.geelHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: yellow;
+}
+
+.geelHexagon::before,
+.geelHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.geelHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid yellow;
+}
+
+.geelHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid yellow;
+}
+
+.zwartHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: black;
+}
+
+.zwartHexagon::before,
+.zwartHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.zwartHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid black;
+}
+
+.zwartHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid black;
+}
+
+.witHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: white;
+}
+
+.witHexagon::before,
+.witHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.witHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid white;
+}
+
+.witHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid white;
+}
+
+.groenHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: green;
+}
+
+.groenHexagon::before,
+.groenHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.groenHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid green;
+}
+
+.groenHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid green;
+}
+
+.bruinHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: brown;
+}
+
+.bruinHexagon::before,
+.bruinHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.bruinHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid brown;
+}
+
+.bruinHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid brown;
+}
+
+.beigeHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: beige;
+}
+
+.beigeHexagon::before,
+.beigeHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.beigeHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid beige;
+}
+
+.beigeHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid beige;
+}
+
+.paarsHexagon {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: .6rem .8rem;
+  background-color: purple;
+}
+
+.paarsHexagon::before,
+.paarsHexagon::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.paarsHexagon::before {
+  bottom: 100%;
+  border-bottom: .6rem solid purple;
+}
+
+.paarsHexagon::after {
+  top: 100%;
+  width: 0;
+  border-top: .6rem solid purple;
+}

@@ -1,0 +1,195 @@
+.detailSection {
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.imageSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.6rem;
+  height: 84.6rem;
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemInfo {
+  border: 0.2rem solid var(--blue);
+  margin-bottom: 2.4rem;
+  padding: 2.4rem;
+  /* height: 48.6rem; */
+  min-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+.itemInfoDetail {
+  border: 0.2rem solid var(--blue);
+  margin-bottom: 2.4rem;
+  padding: 2.4rem;
+  /* height: 48.6rem; */
+  width: 37.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+.itemInfo > h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.maat {
+  font-size: 2rem;
+}
+
+.prijs {
+  font-size: 3rem;
+}
+
+.stoffenDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.stoffenDiv > div {
+  padding: 0.8rem 0.8rem 0 0;
+  text-align: center;
+}
+
+.iText {
+  width: 2.2rem;
+  height: 1.5rem;
+  text-align: center;
+  color: white;
+}
+
+.iBg {
+  position: relative;
+  width: 2.2rem;
+  height: 1.2rem;
+  margin: 0.6rem 0.8rem;
+  background-color: var(--blue);
+}
+
+.iBg::before,
+.iBg::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 1.1rem solid transparent;
+  border-right: 1.1rem solid transparent;
+}
+
+.iBg::before {
+  bottom: 100%;
+  border-bottom: 0.6rem solid var(--blue);
+}
+
+.iBg::after {
+  top: 100%;
+  width: 0;
+  border-top: 0.6rem solid var(--blue);
+}
+
+.verpakkingDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.geinteresseerdform {
+  height: 52.3rem;
+}
+
+.inputFieldDiv {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.1rem solid var(--darkestgrey);
+  padding: 0.8rem;
+}
+
+.inputFieldDiv > input {
+  border: none;
+  font-size: 1.6rem;
+}
+
+.inputFieldDiv > label {
+  font-size: 1.4rem;
+  margin: 0.8rem 0;
+}
+
+.inputFieldDiv > textarea {
+  border: none;
+  font-size: 1.6rem;
+}
+
+.redenDiv {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 0.1rem solid var(--darkestgrey);
+  padding: 0.8rem;
+}
+
+.redenDiv > h3 {
+  font-size: 1.4rem;
+  margin: 0.8rem 0;
+}
+
+.redenDiv > label {
+  margin: 0.4rem 0;
+}
+
+.maatDiv > p {
+  margin-bottom: 0.8rem;
+}
+
+.tagsDiv {
+  margin-bottom: 1.6rem;
+}
+
+.beschrijving {
+  line-height: 1.8rem;
+}
+
+.comment__section {
+  margin: 5rem 0;
+  margin-left: -12rem;
+}
+
+.comment__article {
+  border: 0.2rem solid var(--yellow);
+  font-size: 1.4rem;
+  padding: 2rem 2rem 2.8rem;
+  /* margin: 1.6rem 1.6rem 0 0; */
+  width: 38.1rem;
+}
+
+.comment__div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.6rem;
+}
+
+.comment_info_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2.4rem;
+}
+
+.comment__article > span {
+  margin-top: 2rem;
+}
+
+.comment_info_div > div > p {
+  font-size: 1.4rem;
+  margin-top: 0.8rem;
+}

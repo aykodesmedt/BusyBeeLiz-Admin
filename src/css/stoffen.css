@@ -1,0 +1,148 @@
+.mainSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95vw;
+}
+
+.stofResultatenDiv {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stofResultaat {
+  min-width: 38.1rem;
+  border: 0.2rem solid var(--yellow);
+  margin: 0.8rem 1.6rem 0.8rem 0;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stofResultatenSection {
+  margin-top: 3.2rem;
+}
+
+.resultaat_img {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+  align-items: center;
+}
+
+.resultaat_img > img {
+  margin-right: 1.6rem;
+}
+
+.resultaat_img > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 85%;
+}
+
+.resultaat_img > div > h3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.div__icons {
+  display: flex;
+  flex-direction: column;
+  margin: 0.8rem;
+}
+
+.div__icons > img {
+  margin: 0.8rem;
+}
+
+.stofForm {
+  /* height: 59rem; */
+}
+
+.boxesGrid {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  padding: 0.8rem;
+}
+
+.inputFieldDiv2 {
+  border-bottom: 0.1rem solid var(--darkestgrey);
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+}
+
+.inputFieldDiv2 > input {
+  font-size: 1.6rem;
+  border: none;
+  text-align: right;
+}
+
+.inputFieldDivSoort input[type="radio"] {
+  display: none;
+}
+
+.inputFieldDivSoort label {
+  display: inline-block;
+  background-color: white;
+  border-radius: 0.6rem;
+  border: 0.2rem solid var(--blue);
+  opacity: 0.8;
+  padding: 0.8rem 1.6rem;
+  margin: 0.8rem 0.4rem 0 0;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.stofFileUpload > label > img {
+  cursor: pointer;
+  padding: 2.4rem;
+}
+
+.inputFieldDivSoort input[type="radio"]:checked + label {
+  background-color: var(--blue);
+  opacity: 1;
+  color: white;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.outputimages {
+  display: relative;
+}
+
+.output_imageStof {
+  width: 7.5rem;
+  height: 7.5rem;
+  margin-bottom: -6rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--blue);
+}
+
+.cameraIcon {
+  margin: 1rem -4rem 3rem 2.5rem;
+}
+
+.stofFileUpload {
+  border: 0.2rem solid var(--blue);
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__section {
+  margin-top: 5rem;
+}

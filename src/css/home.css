@@ -1,0 +1,116 @@
+.stoffenHome {
+  background-image: url(./../assets/img/stoffenFoto.png);
+  background-repeat: no-repeat;
+  width: 30.1rem;
+  height: 29.6rem;
+  line-height: 45rem;
+  align-self: flex-end;
+  text-align: right;
+  margin-right: -4rem;
+}
+
+.damesHome {
+  background-image: url(./../assets/img/damesFoto.png);
+  background-repeat: no-repeat;
+  background-position-x: 1rem;
+  width: 32.3rem;
+  height: 29.3rem;
+  line-height: 15rem;
+  align-self: flex-start;
+  margin-right: -10rem;
+}
+
+.herenHome {
+  background-image: url(./../assets/img/herenFoto.png);
+  background-repeat: no-repeat;
+  background-position-x: 3rem;
+  width: 31.5rem;
+  height: 29.3rem;
+  line-height: 35rem;
+  align-self: flex-end;
+}
+
+.kinderenHome {
+  background-image: url(./../assets/img/kinderenFoto.png);
+  background-repeat: no-repeat;
+  width: 34.2rem;
+  height: 29.5rem;
+  line-height: 22rem;
+  text-align: right;
+  align-self: flex-start;
+  margin-left: -4rem;
+}
+
+.cadeausHome {
+  background-image: url(./../assets/img/cadeausFoto.png);
+  background-repeat: no-repeat;
+  width: 31.2rem;
+  height: 24.7rem;
+  line-height: 42rem;
+  text-align: right;
+  padding-right: 2rem;
+  align-self: flex-end;
+  margin-left: -10rem;
+  margin-bottom: 2rem;
+}
+
+.homeCategorieSection {
+  width: 95vw;
+  height: 65rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.homeCategorieDiv {
+  /* width: 95vw; */
+  display: flex;
+  flex-direction: row;
+  height: 45rem;
+}
+
+.onderscheiding {
+  width: 95vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.horizontalLine {
+  border-bottom: .1rem solid black;
+  width: 64rem;
+}
+
+.bigVerticalLine {
+  border-right: .5rem solid black;
+  height: 10rem;
+  margin: 2rem;
+}
+
+.aboutMeSection {
+  display: flex;
+  width: 80vw;
+  margin: 3rem 0 10rem;
+}
+
+.aboutMeSection > img {
+  margin-right: -5rem;
+}
+
+.aboutMeSection > div > h2 {
+  font-size: 4rem;
+  font-style: italic;
+  margin: 5rem 0;
+}
+
+.aboutMeSection > div > p {
+  font-size: 1.8rem;
+}
+
+.highlighted {
+  font-weight: 500;
+  color: var(--blue);
+}
