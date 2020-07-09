@@ -43,6 +43,7 @@ input:focus {
   flex-direction: row;
   font-size: 1.8rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .onderCategorie {

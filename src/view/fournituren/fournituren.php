@@ -25,16 +25,16 @@
           }; ?>">Alles</a>
         </li>
         <?php foreach($soortFournituur as $soort): ?>
-        <li class="verticalLine"></li>
-        <li <?php if(!empty($_GET["soort"]) && $_GET["soort"] == $soort){
-          echo 'class="onderCategorie menu_active"';
-        }else{
-          echo 'class="onderCategorie"';
-        } ?>>
-          <a href="index.php?page=fournituren&amp;soort=<?php echo $soort ?><?php if(!empty($_GET["kleur"])){
-            echo '&amp;kleur=' . $_GET["kleur"];
-          }; ?>"><?php echo $soort ?></a>
-        </li>
+          <li class="verticalLine"></li>
+          <li <?php if(!empty($_GET["soort"]) && $_GET["soort"] == $soort){
+            echo 'class="onderCategorie menu_active"';
+          }else{
+            echo 'class="onderCategorie"';
+          } ?>>
+            <a href="index.php?page=fournituren&amp;soort=<?php echo $soort ?><?php if(!empty($_GET["kleur"])){
+              echo '&amp;kleur=' . $_GET["kleur"];
+            }; ?>"><?php echo $soort ?></a>
+          </li>
         <?php endforeach; ?>
       </ul>
     </div>
@@ -147,22 +147,20 @@
         </div>
       </div>
       <div class="boxesGrid">
-        <h3>Kleur</h3>
+        <h3>Kleuren</h3>
         <div class="inputFieldDivSoort">
-          <?php
-            foreach($formKleuren as $index => $kleur):
-          ?>
-            <input type="radio" name="kleur" id="kleur<?php echo $index; ?>" value="<?php echo $kleur; ?>" <?php
-              if (!empty($_POST['kleur']) && $_POST['kleur'] == $kleur || $kleur == "Rood") {
+          <?php foreach($kleuren as $kleur): ?>
+            <input type="radio" name="kleur" id="radio<?php echo $kleur["kleur"]; ?>" value="<?php echo $kleur["kleur"]; ?>" <?php
+              if (!empty($_POST['kleur']) && $_POST['kleur'] == $kleur["kleur"] || $kleur["kleur"] == "Rood") {
                 echo 'checked';
               }
-            ?> >
-            <label for="kleur<?php echo $index; ?>"><?php echo $kleur; ?></label>
+            ?>>
+            <label for="radio<?php echo $kleur["kleur"]; ?>"><?php echo $kleur["kleur"]; ?></label>
+          <?php endforeach; ?>
           <?php
-            endforeach;
-            if (!empty($_POST) && empty($_POST['kleur'])) {
-              echo '<span class="error">gelieve een kleur te selecteren</span>';
-            }
+          if (!empty($_POST) && empty($_POST['kleur'])) {
+            echo '<span class="error">gelieve een kleur te selecteren</span>';
+          }
           ?>
         </div>
       </div>
@@ -180,7 +178,7 @@
           ?>
       </div>
       <div class="inputFieldDiv2">
-        <label for="lengte">Lengte (in cm)</label>
+        <label for="lengte">Lengte</label>
         <input type="text" name="lengte" placeholder="1" value="<?php
           if (!empty($_POST['lengte'])) {
             echo $_POST['lengte'];
