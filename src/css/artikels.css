@@ -111,7 +111,6 @@ input:focus {
 
 .resultaatImg {
   z-index: 1;
-  border-radius: 0.8rem;
 }
 
 .resultaatDeco {
@@ -142,17 +141,17 @@ input:focus {
 
 .output_imageArtikel {
   width: 7.4rem;
-  height: 10.8rem;
+  height: 7.4rem;
   margin-bottom: -6rem;
-  border-radius: 0.8rem;
+  /* border-radius: 0.8rem; */
   border: 0.2rem solid var(--blue);
 }
 
 .artikelFileUpload {
   border: 0.2rem solid var(--blue);
   width: 7.4rem;
-  height: 10.8rem;
-  border-radius: 0.8rem;
+  height: 7.4rem;
+  /* border-radius: 0.8rem; */
   display: flex;
   flex-direction: row;
   justify-content: center;

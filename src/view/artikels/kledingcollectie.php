@@ -15,7 +15,7 @@
         </form>
       </div>
       <p class="yellowLineArtikels"></p>
-      <ul class="onderCategorieUl">
+      <!-- <ul class="onderCategorieUl">
         <li <?php if(empty($_GET["onderCategorie"])){
           echo 'class="onderCategorie menu_active"';
         }else{
@@ -37,10 +37,10 @@
             }; ?>"><?php echo $categorie ?></a>
           </li>
         <?php endforeach; ?>
-      </ul>
+      </ul> -->
     </div>
   </div>
-  <ul class="kleurenUl">
+  <!-- <ul class="kleurenUl">
     <li <?php if(empty($_GET["kleur"])){ echo 'class="activeColorFilter"';}; ?>>
       <a href="index.php?page=dames<?php if(!empty($_GET["onderCategorie"])){
         echo '&amp;onderCategorie=' . $_GET["onderCategorie"];
@@ -53,7 +53,7 @@
         }; ?>&amp;kleur=<?php echo $kleur["kleur"]; ?>"><div class="<?php echo $kleur["kleur"]; ?>Hexagon"></div><?php echo $kleur["kleur"]; ?></a>
       </li>
     <?php endforeach; ?>
-  </ul>
+  </ul> -->
 </section>
 <section class="mainSection">
   <section class="stofResultatenSection">
@@ -75,15 +75,14 @@
                 <article class="resultaat">
                 <div>
                   <?php if(!empty($artikel["image1"])): ?>
-                    <img src="<?php echo $artikel["image1"]; ?>" alt="" width="148" height="216" class="resultaatImg">
+                    <img src="<?php echo $artikel["image1"]; ?>" alt="" width="148" height="148" class="resultaatImg">
                   <?php else: ?>
-                    <img src="./assets/img/kledingItem.png" alt="" width="148" height="216" class="resultaatImg">
+                    <img src="./assets/img/kledingItem.png" alt="" width="148" height="148" class="resultaatImg">
                   <?php endif; ?>
                     <img src="./assets/img/decoration/yellowDotsSmall.png" alt="" width="112" height="52" class="resultaatDeco">
                 </div>
                   <div class="resultaatP">
                     <p><?php echo $artikel["titel"]; ?></p>
-                    <p><?php echo $artikel["maat"]; ?></p>
                   </div>
                 </article>
               </a>
@@ -97,9 +96,8 @@
     ?>
   </section>
   <section class="form__section">
-    <form action="index.php?page=dames" method="post" enctype="multipart/form-data" class="itemInfo">
-      <input type="text" name="categorie" class="hidden" value="Dames" />
-      <input type="text" name="leeftijd" class="hidden" value=" " />
+    <form action="index.php?page=kledingcollectie" method="post" enctype="multipart/form-data" class="itemInfo">
+      <input type="text" name="categorie" class="hidden" value="kledingcollectie" />
       <h2><b>Artikel toevoegen</b></h2>
       <div class="fileUpload__div">
         <div class="artikelFileUpload">
@@ -260,113 +258,6 @@
           <?php
           if (!empty($_POST) && empty($_POST['beschrijving'])) {
             echo '<span class="error">gelieve een beschrijving in te vullen</span>';
-          }
-          ?>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="maat">Maat</label>
-        <select name="maat" id="maat">
-          <option value="36-38" <?php
-              if (!empty($_POST['maat']) && $_POST['maat'] == '36-38') {
-                echo 'selected';
-              }
-            ?>>36-38</option>
-          <option value="40-42" <?php
-              if (!empty($_POST['maat']) && $_POST['maat'] == '40-42') {
-                echo 'selected';
-              }
-            ?>>40-42</option>
-          <option value="44-46" <?php
-              if (!empty($_POST['maat']) && $_POST['maat'] == '44-46') {
-                echo 'selected';
-              }
-            ?>>44-46</option>
-        </select>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="onderCategorie">Soort artikel</label>
-        <select name="onderCategorie" id="onderCategorie">
-          <?php foreach($categorien as $categorie => $index): ?>
-          <option value="<?php echo $index ?>" <?php
-              if (!empty($_POST['onderCategorie']) && $_POST['onderCategorie'] == $index) {
-                echo 'selected';
-              }
-            ?>><?php echo $categorie ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-      <div class="boxesGrid">
-        <h3>Kleuren</h3>
-        <div class="inputFieldDivSoort">
-          <?php foreach($kleuren as $kleur): ?>
-            <input type="radio" name="kleur" id="radio<?php echo $kleur["kleur"]; ?>" value="<?php echo $kleur["kleur"]; ?>" <?php
-              if (!empty($_POST['kleur']) && $_POST['kleur'] == $kleur["kleur"] || $kleur["kleur"] == "Rood") {
-                echo 'checked';
-              }
-            ?>>
-            <label for="radio<?php echo $kleur["kleur"]; ?>"><?php echo $kleur["kleur"]; ?></label>
-          <?php endforeach; ?>
-          <?php
-          if (!empty($_POST) && empty($_POST['kleur'])) {
-            echo '<span class="error">gelieve een kleur te selecteren</span>';
-          }
-          ?>
-        </div>
-      </div>
-      <div class="boxesGrid">
-        <h3>Soort stof</h3>
-        <div class="inputFieldDivSoort">
-          <?php foreach($soortenStof as $soortStof => $index): ?>
-            <input type="radio" name="stofSoort" id="radio<?php echo $index; ?>" value="<?php echo $soortStof; ?>" <?php
-              if (!empty($_POST['stofSoort']) && $_POST['stofSoort'] == $soortStof || $soortStof == "Tricot") {
-                echo 'checked';
-              }
-            ?>>
-            <label for="radio<?php echo $index; ?>"><?php echo $soortStof; ?></label>
-          <?php endforeach; ?>
-          <?php
-          if (!empty($_POST) && empty($_POST['stofSoort'])) {
-            echo '<span class="error">gelieve een stofSoort te selecteren</span>';
-          }
-          ?>
-        </div>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="stofLengte">Nodige lengte (in m)</label>
-        <input type="text" name="stofLengte" placeholder="1" value="<?php
-          if (!empty($_POST['stofLengte'])) {
-            echo $_POST['stofLengte'];
-          }
-          ?>" />
-          <?php
-          if (!empty($_POST) && empty($_POST['stofLengte'])) {
-            echo '<span class="error">gelieve een stofLengte in te vullen</span>';
-          }
-          ?>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="stofBreedte">Nodige breedte (in m)</label>
-        <input type="text" name="stofBreedte" placeholder="1" value="<?php
-          if (!empty($_POST['stofBreedte'])) {
-            echo $_POST['stofBreedte'];
-          }
-          ?>" />
-          <?php
-          if (!empty($_POST) && empty($_POST['stofBreedte'])) {
-            echo '<span class="error">gelieve een stofBreedte in te vullen</span>';
-          }
-          ?>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="prijs">Prijs</label>
-        <input type="text" name="prijs" placeholder="1" value="<?php
-          if (!empty($_POST['prijs'])) {
-            echo $_POST['prijs'];
-          }
-          ?>" />
-          <?php
-          if (!empty($_POST) && empty($_POST['prijs'])) {
-            echo '<span class="error">gelieve een prijs in te vullen</span>';
           }
           ?>
       </div>

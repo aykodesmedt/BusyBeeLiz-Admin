@@ -36,38 +36,38 @@
             </a>
           </li>
           <li class="<?php
-                  if($currentPage == 'dames'){
+                  if($currentPage == 'gepersonaliseerdeArtikelen'){
                     echo 'categorie menu_active"';
                     echo 'aria-describedby="current"';
                   }else {
                     echo 'categorie';
                   }
                 ?>">
-            <a href="index.php?page=dames">Dames</a>
+            <a href="index.php?page=gepersonaliseerdeArtikelen">Gepersonaliseerde Artikelen</a>
           </li>
           <li class="verticalLine"></li>
           <li class="<?php
-                  if($currentPage == 'heren'){
+                  if($currentPage == 'doeHetZelf'){
                     echo 'categorie menu_active"';
                     echo 'aria-describedby="current"';
                   }else {
                     echo 'categorie';
                   }
                 ?>">
-            <a href="index.php?page=heren">Heren</a>
+            <a href="index.php?page=doeHetZelf">Doe Het Zelf</a>
           </li>
           <li class="verticalLine"></li>
           <li class="<?php
-                  if($currentPage == 'kinderen'){
+                  if($currentPage == 'kledingcollectie'){
                     echo 'categorie menu_active"';
                     echo 'aria-describedby="current"';
                   }else {
                     echo 'categorie';
                   }
                 ?>">
-            <a href="index.php?page=kinderen">Kinderen</a>
+            <a href="index.php?page=kledingcollectie">Kledingcollectie</a>
           </li>
-          <li class="verticalLine"></li>
+          <!-- <li class="verticalLine"></li>
           <li class="<?php
                   if($currentPage == 'cadeaus'){
                     echo 'categorie menu_active"';
@@ -77,7 +77,7 @@
                   }
                 ?>">
             <a href="index.php?page=cadeaus">Cadeaus</a>
-          </li>
+          </li> -->
           <li class="verticalLine"></li>
           <li class="<?php
                   if($currentPage == 'stoffen'){

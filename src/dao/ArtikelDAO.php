@@ -43,6 +43,14 @@ class ArtikelDAO extends DAO {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function selectByCategory($categorie){
+    $sql= "SELECT * FROM producten WHERE `categorie` = :categorie";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':categorie', $categorie);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   public function searchStoffenByArtikel($id, $stofLengte, $stofBreedte){
     $sql = "SELECT stoffen .*
     FROM artikels
@@ -99,7 +107,7 @@ class ArtikelDAO extends DAO {
   // }
 
   public function selectById($id){
-    $sql = "SELECT * FROM `artikels` WHERE id = :id";
+    $sql = "SELECT * FROM `producten` WHERE id = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
@@ -107,7 +115,7 @@ class ArtikelDAO extends DAO {
   }
 
   public function delete($id){
-    $sql = "DELETE FROM `artikels` WHERE id = :id";
+    $sql = "DELETE FROM `producten` WHERE id = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
@@ -117,19 +125,11 @@ class ArtikelDAO extends DAO {
   public function insert($data){
     $errors = $this->validate($data);
     if (empty($errors)) {
-      $sql = "INSERT INTO `artikels` (`categorie`,`titel`, `beschrijving`, `maat`, `onderCategorie`, `leeftijd`, `kleuren`, `stofSoort`, `stofLengte`, `stofBreedte`, `prijs`, `image1`, `image2`, `image3`, `image4`, `image5`, `image6`) VALUES (:categorie, :titel, :beschrijving, :maat, :onderCategorie, :leeftijd, :kleuren, :stofSoort, :stofLengte, :stofBreedte, :prijs, :imageEen, :imageTwee, :imageDrie, :imageVier, :imageVijf, :imageZes)";
+      $sql = "INSERT INTO `producten` (`categorie`, `titel`, `beschrijving`, `image1`, `image2`, `image3`, `image4`, `image5`, `image6`) VALUES (:categorie, :titel, :beschrijving, :imageEen, :imageTwee, :imageDrie, :imageVier, :imageVijf, :imageZes)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':categorie', $data['categorie']);
       $stmt->bindValue(':titel', $data['titel']);
       $stmt->bindValue(':beschrijving', $data['beschrijving']);
-      $stmt->bindValue(':maat', $data['maat']);
-      $stmt->bindValue(':onderCategorie', $data['onderCategorie']);
-      $stmt->bindValue(':leeftijd', $data['leeftijd']);
-      $stmt->bindValue(':kleuren', $data['kleur']);
-      $stmt->bindValue(':stofSoort', $data['stofSoort']);
-      $stmt->bindValue(':stofLengte', $data['stofLengte']);
-      $stmt->bindValue(':stofBreedte', $data['stofBreedte']);
-      $stmt->bindValue(':prijs', $data['prijs']);
       $stmt->bindValue(':imageEen', $data['imageEen']);
       $stmt->bindValue(':imageTwee', $data['imageTwee']);
       $stmt->bindValue(':imageDrie', $data['imageDrie']);
@@ -137,7 +137,7 @@ class ArtikelDAO extends DAO {
       $stmt->bindValue(':imageVijf', $data['imageVijf']);
       $stmt->bindValue(':imageZes', $data['imageZes']);
       if ($stmt->execute()) {
-        return $this->search($data['categorie']);
+        return $this->selectByCategory($data['categorie']);
       }
     }
     return false;
@@ -149,20 +149,6 @@ class ArtikelDAO extends DAO {
       $stmt->bindValue(':categorie', $data['categorie']);
       $stmt->bindValue(':titel', $data['titel']);
       $stmt->bindValue(':beschrijving', $data['beschrijving']);
-      $stmt->bindValue(':maat', $data['maat']);
-      $stmt->bindValue(':onderCategorie', $data['onderCategorie']);
-      $stmt->bindValue(':leeftijd', $data['leeftijd']);
-      $stmt->bindValue(':kleuren', $data['kleur']);
-      $stmt->bindValue(':stofSoort', $data['stofSoort']);
-      $stmt->bindValue(':stofLengte', $data['stofLengte']);
-      $stmt->bindValue(':stofBreedte', $data['stofBreedte']);
-      $stmt->bindValue(':prijs', $data['prijs']);
-      // $stmt->bindValue(':imageEen', $data['imageEen']);
-      // $stmt->bindValue(':imageTwee', $data['imageTwee']);
-      // $stmt->bindValue(':imageDrie', $data['imageDrie']);
-      // $stmt->bindValue(':imageVier', $data['imageVier']);
-      // $stmt->bindValue(':imageVijf', $data['imageVijf']);
-      // $stmt->bindValue(':imageZes', $data['imageZes']);
       $stmt->bindValue(':id', $data['id']);
       if ($stmt->execute()) {
         return $this->selectById($data['id']);
@@ -180,48 +166,6 @@ class ArtikelDAO extends DAO {
     if (empty($data['beschrijving'])) {
       $errors['beschrijving'] = 'Please enter a beschrijving';
     }
-    if (empty($data['maat'])) {
-      $errors['maat'] = 'Please enter a maat';
-    }
-    if (empty($data['onderCategorie'])) {
-      $errors['onderCategorie'] = 'Please enter a onderCategorie';
-    }
-    if (empty($data['leeftijd'])) {
-      $errors['leeftijd'] = 'Please enter a leeftijd';
-    }
-    if (empty($data['kleur'])) {
-      $errors['kleur'] = 'Please enter a kleuren';
-    }
-    if (empty($data['stofSoort'])) {
-      $errors['stofSoort'] = 'Please enter a stofSoort';
-    }
-    if (empty($data['stofLengte'])) {
-      $errors['stofLengte'] = 'Please enter a stofLengte';
-    }
-    if (empty($data['stofBreedte'])) {
-      $errors['stofBreedte'] = 'Please enter a stofBreedte';
-    }
-    if (empty($data['prijs'])) {
-      $errors['prijs'] = 'Please enter a prijs';
-    }
-    // if (empty($data['imageEen'])) {
-    //   $errors['imageEen'] = 'Please enter a image';
-    // }
-    // if (empty($data['imageTwee'])) {
-    //   $errors['imageTwee'] = 'Please enter a image';
-    // }
-    // if (empty($data['imageDrie'])) {
-    //   $errors['imageDrie'] = 'Please enter a image';
-    // }
-    // if (empty($data['imageVier'])) {
-    //   $errors['imageVier'] = 'Please enter a image';
-    // }
-    // if (empty($data['imageVijf'])) {
-    //   $errors['imageVijf'] = 'Please enter a image';
-    // }
-    // if (empty($data['imageZes'])) {
-    //   $errors['imageZes'] = 'Please enter a image';
-    // }
     return $errors;
   }
 

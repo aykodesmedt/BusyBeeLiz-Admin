@@ -2,14 +2,12 @@
 
 require_once __DIR__ . '/Controller.php';
 require_once './dao/ArtikelDAO.php';
-require_once './dao/KleurDAO.php';
 require_once './dao/CommentDAO.php';
 
 class ArtikelsController extends Controller {
 
   function __construct() {
     $this->artikelDAO = new ArtikelDAO();
-    $this->kleurDAO = new KleurDAO();
     $this->commentDAO = new CommentDAO();
   }
 
@@ -18,35 +16,17 @@ class ArtikelsController extends Controller {
     $this->set('currentPage', 'home');
   }
 
-  public function dames() {
-    $this->set('title', 'dames');
-    $this->set('currentPage', 'dames');
-    if(!empty($_GET["onderCategorie"])){
-      if(!empty($_GET["kleur"])){
-        $artikels = $this->artikelDAO->search('dames', $_GET["onderCategorie"], $_GET["kleur"]);
-        $this->set('artikels', $artikels);
-      }else{
-        $artikels = $this->artikelDAO->search('dames', $_GET["onderCategorie"], '');
-        $this->set('artikels', $artikels);
-      }
-    }else if(!empty($_GET["kleur"])){
-      if(!empty($_GET["onderCategorie"])){
-        $artikels = $this->artikelDAO->search('dames', $_GET["onderCategorie"], $_GET["kleur"]);
-        $this->set('artikels', $artikels);
-      }else{
-        $artikels = $this->artikelDAO->search('dames', '', $_GET["kleur"]);
-        $this->set('artikels', $artikels);
-      }
-    }else{
-      // $artikels = $this->artikelDAO->selectAllDames();
-      $artikels = $this->artikelDAO->search('dames');
-      $this->set('artikels', $artikels);
-    }
+  public function gepersonaliseerdeArtikelen() {
+    $this->set('title', 'Gepersonaliseerde Artikelen');
+    $this->set('currentPage', 'gepersonaliseerdeArtikelen');
+
+    $artikels = $this->artikelDAO->selectByCategory($_GET["page"]);
+    $this->set('artikels', $artikels);
 
     if(!empty($_FILES['imageEen'])) {
       $this->_handlePostArtikel();
       // $this->set('artikels', $this->damesDAO->selectAll());
-      $this->set('artikels', $this->artikelDAO->search($_GET["page"]));
+      $this->set('artikels', $this->artikelDAO->selectByCategory('gepersonaliseerdeArtikelen'));
     }
 
     if (!empty($_GET['action'])) {
@@ -58,89 +38,52 @@ class ArtikelsController extends Controller {
       }
     }
 
-    $kleuren = $this->kleurDAO->selectAll();
-    $this->set('kleuren', $kleuren);
-
   }
 
-  public function heren() {
-    $this->set('title', 'heren');
-    $this->set('currentPage', 'heren');
-    if(!empty($_GET["onderCategorie"])){
-      // $artikels = $this->artikelDAO->selectHerenByOndercategorie($_GET["onderCategorie"]);
-      if(!empty($_GET["kleur"])){
-        $artikels = $this->artikelDAO->search('heren', $_GET["onderCategorie"], $_GET["kleur"],'');
-        $this->set('artikels', $artikels);
-      }else{
-        $artikels = $this->artikelDAO->search('heren', $_GET["onderCategorie"], '','');
-        $this->set('artikels', $artikels);
-      }
-    }else if(!empty($_GET["kleur"])){
-      if(!empty($_GET["onderCategorie"])){
-        $artikels = $this->artikelDAO->search('heren', $_GET["onderCategorie"], $_GET["kleur"],'');
-        $this->set('artikels', $artikels);
-      }else{
-        $artikels = $this->artikelDAO->search('heren', '', $_GET["kleur"],'');
-        $this->set('artikels', $artikels);
-      }
-    }else{
-      // $artikels = $this->artikelDAO->selectAllheren();
-      $artikels = $this->artikelDAO->search('heren');
-      $this->set('artikels', $artikels);
-    }
+  public function doeHetZelf() {
+    $this->set('title', 'Doe Het Zelf');
+    $this->set('currentPage', 'doeHetZelf');
+
+    $artikels = $this->artikelDAO->selectByCategory($_GET["page"]);
+    $this->set('artikels', $artikels);
 
     if(!empty($_FILES['imageEen'])) {
       $this->_handlePostArtikel();
-      $this->set('artikels', $this->artikelDAO->search($_GET["page"]));
+      // $this->set('artikels', $this->damesDAO->selectAll());
+      $this->set('artikels', $this->artikelDAO->selectByCategory('doeHetZelf'));
     }
 
     if (!empty($_GET['action'])) {
       if ($_GET['action'] == 'delete' && !empty($_GET['id'])) {
-        $this->handleDeleteArtikel();
+        $this->_handleDeleteArtikel();
+      }
+      if($_GET['action'] == 'update' && !empty($_GET['id'])){
+        $this->_handleUpdateArtikel();
       }
     }
-
-    $kleuren = $this->kleurDAO->selectAll();
-    $this->set('kleuren', $kleuren);
   }
 
-  public function kinderen() {
-    $this->set('title', 'kinderen');
-    $this->set('currentPage', 'kinderen');
-    if(!empty($_GET["onderCategorie"])){
-      if(!empty($_GET["leeftijd"])){
-        $artikels = $this->artikelDAO->search('kinderen', $_GET["onderCategorie"], '', $_GET["leeftijd"]);
-        $this->set('artikels', $artikels);
-      }else{
-        $artikels = $this->artikelDAO->search('kinderen', $_GET["onderCategorie"], '', '');
-        $this->set('artikels', $artikels);
-      }
-    }else if(!empty($_GET["leeftijd"])){
-      if(!empty($_GET["onderCategorie"])){
-        $artikels = $this->artikelDAO->search('kinderen', $_GET["onderCategorie"], '', $_GET["leeftijd"]);
-        $this->set('artikels', $artikels);
-      }else{
-        $artikels = $this->artikelDAO->search('kinderen', '', '', $_GET["leeftijd"]);
-        $this->set('artikels', $artikels);
-      }
-    }else{
-      $artikels = $this->artikelDAO->search('kinderen');
-      $this->set('artikels', $artikels);
-    }
+  public function kledingcollectie() {
+    $this->set('title', 'Kledingcollectie');
+    $this->set('currentPage', 'kledingcollectie');
+
+    $artikels = $this->artikelDAO->selectByCategory($_GET["page"]);
+    $this->set('artikels', $artikels);
 
     if(!empty($_FILES['imageEen'])) {
       $this->_handlePostArtikel();
-      $this->set('artikels', $this->kinderenDAO->selectAll());
+      // $this->set('artikels', $this->damesDAO->selectAll());
+      $this->set('artikels', $this->artikelDAO->selectByCategory('kledingcollectie'));
     }
 
     if (!empty($_GET['action'])) {
       if ($_GET['action'] == 'delete' && !empty($_GET['id'])) {
-        $this->handleDeleteArtikel();
+        $this->_handleDeleteArtikel();
+      }
+      if($_GET['action'] == 'update' && !empty($_GET['id'])){
+        $this->_handleUpdateArtikel();
       }
     }
-
-    $kleuren = $this->kleurDAO->selectAll();
-    $this->set('kleuren', $kleuren);
   }
 
   public function cadeaus() {
@@ -179,13 +122,9 @@ class ArtikelsController extends Controller {
         $this->_handleDeleteArtikel();
       }
     }
-
-    $kleuren = $this->kleurDAO->selectAll();
-    $this->set('kleuren', $kleuren);
   }
 
   public function detail() {
-
     if(!empty($_GET['id'])){
       $artikel = $this->artikelDAO->selectById($_GET['id']);
       $this->set('artikel', $artikel);
@@ -213,9 +152,6 @@ class ArtikelsController extends Controller {
       }
     }
 
-    $kleuren = $this->kleurDAO->selectAll();
-    $this->set('kleuren', $kleuren);
-
     $comments = $this->commentDAO->selectByArtikelId($_GET['id']);
     $this->set('comments', $comments);
   }
@@ -230,8 +166,7 @@ class ArtikelsController extends Controller {
   private function _handleUpdateArtikel() {
     $data = array_merge($_POST, array('id' => $_GET['id']));
     $this->artikelDAO->update($data);
-    // $data = $_POST;
-    // $this->artikelDAO->update($data, $id);
+
     $_SESSION['info'] = 'Artikel werd upgedate!';
     header('Location: index.php?page=detail&id=' . $_GET['id']);
     exit();
@@ -240,12 +175,12 @@ class ArtikelsController extends Controller {
   private function _handleDeleteArtikel() {
     $this->artikelDAO->delete($_GET['id']);
     $_SESSION['info'] = 'Artikel werd verwijderd!';
-    if($_GET['page'] == 'dames'){
-      header('Location: index.php?page=dames');
-    }else if($_GET['page'] == 'heren'){
-      header('Location: index.php?page=heren');
-    }else if($_GET['page'] == 'kinderen'){
-      header('Location: index.php?page=kinderen');
+    if($_GET['page'] == 'gepersonaliseerdeArtikelen'){
+      header('Location: index.php?page=gepersonaliseerdeArtikelen');
+    }else if($_GET['page'] == 'doeHetZelf'){
+      header('Location: index.php?page=doeHetZelf');
+    }else if($_GET['page'] == 'kledingcollectie'){
+      header('Location: index.php?page=kledingcollectie');
     }else if($_GET['page'] == 'cadeaus'){
       header('Location: index.php?page=cadeaus');
     }
@@ -261,6 +196,7 @@ class ArtikelsController extends Controller {
       'imageVijf' => 'will-be-set-later',
       'imageZes' => 'will-be-set-later'
     ));
+
     // valideer de non-file data (gallery_id, title)
     if(!empty($data['categorie'])){
       $errors = $this->artikelDAO->validate($data);
@@ -294,27 +230,27 @@ class ArtikelsController extends Controller {
     if (empty($errors)) {
       // controleer de afmetingen van het bestand
       $sizeEen = getimagesize($_FILES['imageEen']['tmp_name']);
-      if ($sizeEen[0] < 285 || $sizeEen[1] < 415) {
+      if ($sizeEen[0] < 285 || $sizeEen[1] < 285) {
         $errors['imageEen'] = 'De afbeelding moet minimum 285 pixels groot zijn';
       }
       $sizeTwee = getimagesize($_FILES['imageTwee']['tmp_name']);
-      if ($sizeTwee[0] < 285 || $sizeTwee[1] < 415) {
+      if ($sizeTwee[0] < 285 || $sizeTwee[1] < 285) {
         $errors['imageTwee'] = 'De afbeelding moet minimum 285 pixels groot zijn';
       }
       $sizeDrie = getimagesize($_FILES['imageDrie']['tmp_name']);
-      if ($sizeDrie[0] < 285 || $sizeDrie[1] < 415) {
+      if ($sizeDrie[0] < 285 || $sizeDrie[1] < 285) {
         $errors['imageDrie'] = 'De afbeelding moet minimum 285 pixels groot zijn';
       }
       $sizeVier = getimagesize($_FILES['imageVier']['tmp_name']);
-      if ($sizeVier[0] < 285 || $sizeVier[1] < 415) {
+      if ($sizeVier[0] < 285 || $sizeVier[1] < 285) {
         $errors['imageVier'] = 'De afbeelding moet minimum 285 pixels groot zijn';
       }
       $sizeVijf = getimagesize($_FILES['imageVijf']['tmp_name']);
-      if ($sizeVijf[0] < 285 || $sizeVijf[1] < 415) {
+      if ($sizeVijf[0] < 285 || $sizeVijf[1] < 285) {
         $errors['imageVijf'] = 'De afbeelding moet minimum 285 pixels groot zijn';
       }
       $sizeZes = getimagesize($_FILES['imageZes']['tmp_name']);
-      if ($sizeZes[0] < 285 || $sizeZes[1] < 415) {
+      if ($sizeZes[0] < 285 || $sizeZes[1] < 285) {
         $errors['imageZes'] = 'De afbeelding moet minimum 285 pixels groot zijn';
       }
     }
@@ -329,7 +265,7 @@ class ArtikelsController extends Controller {
       $this->_resizeAndCrop(
         $_FILES['imageEen']['tmp_name'],
         $targetFileNameEen,
-        285, 415
+        285, 285
       );
       $relativeFileNameEen = substr($targetFileNameEen, 1 + strlen($projectFolder));
       $data['imageEen'] = $relativeFileNameEen;
@@ -338,7 +274,7 @@ class ArtikelsController extends Controller {
       $this->_resizeAndCrop(
         $_FILES['imageTwee']['tmp_name'],
         $targetFileNameTwee,
-        285, 415
+        285, 285
       );
       $relativeFileNameTwee = substr($targetFileNameTwee, 1 + strlen($projectFolder));
       $data['imageTwee'] = $relativeFileNameTwee;
@@ -347,7 +283,7 @@ class ArtikelsController extends Controller {
       $this->_resizeAndCrop(
         $_FILES['imageDrie']['tmp_name'],
         $targetFileNameDrie,
-        285, 415
+        285, 285
       );
       $relativeFileNameDrie = substr($targetFileNameDrie, 1 + strlen($projectFolder));
       $data['imageDrie'] = $relativeFileNameDrie;
@@ -356,7 +292,7 @@ class ArtikelsController extends Controller {
       $this->_resizeAndCrop(
         $_FILES['imageVier']['tmp_name'],
         $targetFileNameVier,
-        285, 415
+        285, 285
       );
       $relativeFileNameVier = substr($targetFileNameVier, 1 + strlen($projectFolder));
       $data['imageVier'] = $relativeFileNameVier;
@@ -365,7 +301,7 @@ class ArtikelsController extends Controller {
       $this->_resizeAndCrop(
         $_FILES['imageVijf']['tmp_name'],
         $targetFileNameVijf,
-        285, 415
+        285, 285
       );
       $relativeFileNameVijf = substr($targetFileNameVijf, 1 + strlen($projectFolder));
       $data['imageVijf'] = $relativeFileNameVijf;
@@ -374,25 +310,22 @@ class ArtikelsController extends Controller {
       $this->_resizeAndCrop(
         $_FILES['imageZes']['tmp_name'],
         $targetFileNameZes,
-        285, 415
+        285, 285
       );
       $relativeFileNameZes = substr($targetFileNameZes, 1 + strlen($projectFolder));
       $data['imageZes'] = $relativeFileNameZes;
 
       if(!empty($data['categorie'])){
         $insertedImage = $this->artikelDAO->insert($data);
-        // if($data['categorie'] == 'Dames'){
-        //   $insertedImage = $this->damesDAO->insert($data);
-        // }
       }
       if (!empty($insertedImage)) {
         $_SESSION['info'] = 'Het bestand werd ge-upload!';
-        if($_GET['page'] == 'dames'){
-          header('Location: index.php?page=dames');
-        }else if($_GET['page'] == 'heren'){
-          header('Location: index.php?page=heren');
-        }else if($_GET['page'] == 'kinderen'){
-          header('Location: index.php?page=kinderen');
+        if($_GET['page'] == 'gepersonaliseerdeArtikelen'){
+          header('Location: index.php?page=gepersonaliseerdeArtikelen');
+        }else if($_GET['page'] == 'doeHetZelf'){
+          header('Location: index.php?page=doeHetZelf');
+        }else if($_GET['page'] == 'kledingcollectie'){
+          header('Location: index.php?page=kledingcollectie');
         }else if($_GET['page'] == 'cadeaus'){
           header('Location: index.php?page=cadeaus');
         }

@@ -16,17 +16,17 @@ $routes = array(
     'controller' => 'Artikels',
     'action' => 'producten'
   ),
-  'dames' => array(
+  'gepersonaliseerdeArtikelen' => array(
     'controller' => 'Artikels',
-    'action' => 'dames'
+    'action' => 'gepersonaliseerdeArtikelen'
   ),
-  'heren' => array(
+  'doeHetZelf' => array(
     'controller' => 'Artikels',
-    'action' => 'heren'
+    'action' => 'doeHetZelf'
   ),
-  'kinderen' => array(
+  'kledingcollectie' => array(
     'controller' => 'Artikels',
-    'action' => 'kinderen'
+    'action' => 'kledingcollectie'
   ),
   'cadeaus' => array(
     'controller' => 'Artikels',

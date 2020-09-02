@@ -1,10 +1,11 @@
 <?php
   $categorien = array("Jurken"=>"jurken", "Tops & T-shirts"=>"topsandshirts", "Rokken"=>"rokken", "Truien"=>"truien", "Vesten"=>"vesten", "Broeken"=>"broeken", "Blouses"=>"blouses", "Accessoires"=>"accessoires");
   $soortenStof = array("Jersey" => 1, "Katoen" => 2, "Katoen Lycra" => 3, "Katoen Tricot" => 4, "Viscose" => 5, "Jeans" => 6, "Polyester" => 7, "Sweater" => 8, "Voile" => 9, "Kant" => 10, "Velours" => 11, "Babyrib" => 12, "Gebreid" => 13, "Punta di Roma" => 14, "French Terry" => 15, "Jassen" => 16, "Overig" => 17);
+
 ?>
 <section>
   <div class="artikelsHeader">
-    <img src="./assets/img/kinderen.png" alt="..." width="285" height="247" />
+    <img src="./assets/img/dames.png" alt="..." width="285" height="247" />
     <div>
       <div class="headerTitelSearch">
         <h2 class="boldTitel"><?php echo $title; ?></h2>
@@ -14,13 +15,13 @@
         </form>
       </div>
       <p class="yellowLineArtikels"></p>
-      <ul class="onderCategorieUl">
+      <!-- <ul class="onderCategorieUl">
         <li <?php if(empty($_GET["onderCategorie"])){
           echo 'class="onderCategorie menu_active"';
         }else{
           echo 'class="onderCategorie"';
         } ?>>
-          <a href="index.php?page=kinderen<?php if(!empty($_GET["kleur"])){
+          <a href="index.php?page=dames<?php if(!empty($_GET["kleur"])){
             echo '&amp;kleur=' . $_GET["kleur"];
           }; ?>">Alles</a>
         </li>
@@ -31,36 +32,28 @@
           }else{
             echo 'class="onderCategorie"';
           } ?>>
-            <a href="index.php?page=kinderen&amp;onderCategorie=<?php echo $categorie_value ?><?php if(!empty($_GET["kleur"])){
+            <a href="index.php?page=dames&amp;onderCategorie=<?php echo $categorie_value ?><?php if(!empty($_GET["kleur"])){
               echo '&amp;kleur=' . $_GET["kleur"];
             }; ?>"><?php echo $categorie ?></a>
           </li>
         <?php endforeach; ?>
-      </ul>
+      </ul> -->
     </div>
   </div>
-  <ul class="kleurenUl">
-    <li <?php if(empty($_GET["leeftijd"])){ echo 'class="activeColorFilter"';}; ?>>
-      <a href="index.php?page=kinderen<?php if(!empty($_GET["onderCategorie"])){
+  <!-- <ul class="kleurenUl">
+    <li <?php if(empty($_GET["kleur"])){ echo 'class="activeColorFilter"';}; ?>>
+      <a href="index.php?page=dames<?php if(!empty($_GET["onderCategorie"])){
         echo '&amp;onderCategorie=' . $_GET["onderCategorie"];
       }; ?>">Alles</a>
     </li>
-    <li <?php if(!empty($_GET["leeftijd"]) && $_GET["leeftijd"] == 'babys'){ echo 'class="activeColorFilter"';}; ?>>
-      <a href="index.php?page=kinderen<?php if(!empty($_GET["onderCategorie"])){
-        echo '&amp;onderCategorie=' . $_GET["onderCategorie"];
-      }; ?>&amp;leeftijd=babys">Babys</a>
-    </li>
-    <li <?php if(!empty($_GET["leeftijd"]) && $_GET["leeftijd"] == 'meisjes'){ echo 'class="activeColorFilter"';}; ?>>
-      <a href="index.php?page=kinderen<?php if(!empty($_GET["onderCategorie"])){
-        echo '&amp;onderCategorie=' . $_GET["onderCategorie"];
-      }; ?>&amp;leeftijd=meisjes">Meisjes</a>
-    </li>
-    <li <?php if(!empty($_GET["leeftijd"]) && $_GET["leeftijd"] == 'jongens'){ echo 'class="activeColorFilter"';}; ?>>
-      <a href="index.php?page=kinderen<?php if(!empty($_GET["onderCategorie"])){
-        echo '&amp;onderCategorie=' . $_GET["onderCategorie"];
-      }; ?>&amp;leeftijd=jongens">Jongens</a>
-    </li>
-  </ul>
+    <?php foreach($kleuren as $kleur): ?>
+      <li <?php if(!empty($_GET["kleur"]) && $_GET["kleur"] == $kleur["kleur"]){ echo 'class="activeColorFilter"';}; ?>>
+        <a href="index.php?page=dames<?php if(!empty($_GET["onderCategorie"])){
+          echo '&amp;onderCategorie=' . $_GET["onderCategorie"];
+        }; ?>&amp;kleur=<?php echo $kleur["kleur"]; ?>"><div class="<?php echo $kleur["kleur"]; ?>Hexagon"></div><?php echo $kleur["kleur"]; ?></a>
+      </li>
+    <?php endforeach; ?>
+  </ul> -->
 </section>
 <section class="mainSection">
   <section class="stofResultatenSection">
@@ -74,39 +67,37 @@
           <?php
             foreach ($artikels as $artikel):
           ?>
-          <div>
-            <a href="index.php?page=kinderen&id=<?php echo $artikel["id"]; ?>&action=delete" class="resultaatDelete">
-              <img src="./assets/img/icons/delete.png" alt="" width="14" height="18">
-            </a>
-            <a href="index.php?page=detail&amp;id=<?php echo $artikel["id"]; ?>">
-              <article class="resultaat">
-              <div>
+            <div>
+              <a href="index.php?page=dames&id=<?php echo $artikel["id"]; ?>&action=delete" class="resultaatDelete">
+                <img src="./assets/img/icons/delete.png" alt="" width="14" height="18">
+              </a>
+              <a href="index.php?page=detail&amp;id=<?php echo $artikel["id"]; ?>">
+                <article class="resultaat">
+                <div>
                   <?php if(!empty($artikel["image1"])): ?>
-                    <img src="<?php echo $artikel["image1"]; ?>" alt="" width="148" height="216" class="resultaatImg">
+                    <img src="<?php echo $artikel["image1"]; ?>" alt="" width="148" height="148" class="resultaatImg">
                   <?php else: ?>
-                    <img src="./assets/img/kledingItem.png" alt="" width="148" height="216" class="resultaatImg">
+                    <img src="./assets/img/kledingItem.png" alt="" width="148" height="148" class="resultaatImg">
                   <?php endif; ?>
                     <img src="./assets/img/decoration/yellowDotsSmall.png" alt="" width="112" height="52" class="resultaatDeco">
                 </div>
-                <div class="resultaatP">
-                  <p><?php echo $artikel["titel"]; ?></p>
-                  <p><?php echo $artikel["maat"]; ?></p>
-                </div>
-              </article>
-            </a>
-          </div>
+                  <div class="resultaatP">
+                    <p><?php echo $artikel["titel"]; ?></p>
+                  </div>
+                </article>
+              </a>
+            </div>
           <?php
             endforeach;
           ?>
         </div>
-
       <?php
       }
     ?>
   </section>
   <section class="form__section">
-    <form action="index.php?page=kinderen" method="post" enctype="multipart/form-data" class="itemInfo">
-      <input type="text" name="categorie" class="hidden" value="Kinderen" />
+    <form action="index.php?page=gepersonaliseerdeArtikelen" method="post" enctype="multipart/form-data" class="itemInfo">
+      <input type="text" name="categorie" class="hidden" value="gepersonaliseerdeArtikelen" />
       <h2><b>Artikel toevoegen</b></h2>
       <div class="fileUpload__div">
         <div class="artikelFileUpload">
@@ -267,132 +258,6 @@
           <?php
           if (!empty($_POST) && empty($_POST['beschrijving'])) {
             echo '<span class="error">gelieve een beschrijving in te vullen</span>';
-          }
-          ?>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="maat">Maat</label>
-        <select name="maat" id="maat">
-          <option value="36-38" <?php
-              if (!empty($_POST['maat']) && $_POST['maat'] == '36-38') {
-                echo 'selected';
-              }
-            ?>>36-38</option>
-          <option value="40-42" <?php
-              if (!empty($_POST['maat']) && $_POST['maat'] == '40-42') {
-                echo 'selected';
-              }
-            ?>>40-42</option>
-          <option value="44-46" <?php
-              if (!empty($_POST['maat']) && $_POST['maat'] == '44-46') {
-                echo 'selected';
-              }
-            ?>>44-46</option>
-        </select>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="onderCategorie">Soort artikel</label>
-        <select name="onderCategorie" id="onderCategorie">
-          <?php foreach($categorien as $categorie => $index): ?>
-          <option value="<?php echo $index ?>" <?php
-              if (!empty($_POST['onderCategorie']) && $_POST['onderCategorie'] == $index) {
-                echo 'selected';
-              }
-            ?>><?php echo $categorie ?></option>
-          <?php endforeach; ?>
-        </select>
-      </div>
-      <div class="boxesGrid">
-        <h3>Leeftijdsgroep</h3>
-        <div class="inputFieldDivSoort">
-        <?php $leeftijden = array("Baby's" => "babies", "Meisjes" => "meisjes", "Jongens" => "jongens"); ?>
-          <?php foreach($leeftijden as $leeftijd => $index): ?>
-            <input type="radio" name="leeftijd" id="radio<?php echo $index; ?>" value="<?php echo $index; ?>" <?php
-              if (!empty($_POST['leeftijd']) && $_POST['leeftijd'] == $leeftijd || $index == "babies") {
-                echo 'checked';
-              }
-            ?>>
-            <label for="radio<?php echo $index; ?>"><?php echo $leeftijd; ?></label>
-          <?php endforeach; ?>
-          <?php
-          if (!empty($_POST) && empty($_POST['leeftijd'])) {
-            echo '<span class="error">gelieve een leeftijd te selecteren</span>';
-          }
-          ?>
-        </div>
-      </div>
-      <div class="boxesGrid">
-        <h3>Kleuren</h3>
-        <div class="inputFieldDivSoort">
-          <?php foreach($kleuren as $kleur): ?>
-            <input type="radio" name="kleur" id="radio<?php echo $kleur["kleur"]; ?>" value="<?php echo $kleur["kleur"]; ?>" <?php
-              if (!empty($_POST['kleur']) && $_POST['kleur'] == $kleur["kleur"] || $kleur["kleur"] == "Rood") {
-                echo 'checked';
-              }
-            ?>>
-            <label for="radio<?php echo $kleur["kleur"]; ?>"><?php echo $kleur["kleur"]; ?></label>
-          <?php endforeach; ?>
-          <?php
-          if (!empty($_POST) && empty($_POST['kleur'])) {
-            echo '<span class="error">gelieve een kleur te selecteren</span>';
-          }
-          ?>
-        </div>
-      </div>
-      <div class="boxesGrid">
-        <h3>Soort stof</h3>
-        <div class="inputFieldDivSoort">
-          <?php foreach($soortenStof as $soortStof => $index): ?>
-            <input type="radio" name="stofSoort" id="radio<?php echo $index; ?>" value="<?php echo $soortStof; ?>" <?php
-              if (!empty($_POST['stofSoort']) && $_POST['stofSoort'] == $soortStof || $soortStof == "Tricot") {
-                echo 'checked';
-              }
-            ?>>
-            <label for="radio<?php echo $index; ?>"><?php echo $soortStof; ?></label>
-          <?php endforeach; ?>
-          <?php
-          if (!empty($_POST) && empty($_POST['stofSoort'])) {
-            echo '<span class="error">gelieve een stofSoort te selecteren</span>';
-          }
-          ?>
-        </div>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="stofLengte">Nodige lengte (in m)</label>
-        <input type="text" name="stofLengte" placeholder="1" value="<?php
-          if (!empty($_POST['stofLengte'])) {
-            echo $_POST['stofLengte'];
-          }
-          ?>" />
-          <?php
-          if (!empty($_POST) && empty($_POST['stofLengte'])) {
-            echo '<span class="error">gelieve een stofLengte in te vullen</span>';
-          }
-          ?>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="stofBreedte">Nodige breedte (in m)</label>
-        <input type="text" name="stofBreedte" placeholder="1" value="<?php
-          if (!empty($_POST['stofBreedte'])) {
-            echo $_POST['stofBreedte'];
-          }
-          ?>" />
-          <?php
-          if (!empty($_POST) && empty($_POST['stofBreedte'])) {
-            echo '<span class="error">gelieve een stofBreedte in te vullen</span>';
-          }
-          ?>
-      </div>
-      <div class="inputFieldDiv2">
-        <label for="prijs">Prijs</label>
-        <input type="text" name="prijs" placeholder="1" value="<?php
-          if (!empty($_POST['prijs'])) {
-            echo $_POST['prijs'];
-          }
-          ?>" />
-          <?php
-          if (!empty($_POST) && empty($_POST['prijs'])) {
-            echo '<span class="error">gelieve een prijs in te vullen</span>';
           }
           ?>
       </div>
