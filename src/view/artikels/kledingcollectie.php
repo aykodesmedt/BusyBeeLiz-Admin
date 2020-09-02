@@ -9,10 +9,6 @@
     <div>
       <div class="headerTitelSearch">
         <h2 class="boldTitel"><?php echo $title; ?></h2>
-        <form action="" method="post" class="searchForm">
-          <input type="text" name="search" id="search" placeholder="t-shirt">
-          <button type="submit" id="searchButton" class="searchButton"><img src="./assets/img/search.png" alt="" width="24" height="24"></button>
-        </form>
       </div>
       <p class="yellowLineArtikels"></p>
       <!-- <ul class="onderCategorieUl">
