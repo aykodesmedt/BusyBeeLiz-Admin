@@ -129,10 +129,6 @@ class ArtikelsController extends Controller {
       $artikel = $this->artikelDAO->selectById($_GET['id']);
       $this->set('artikel', $artikel);
     }
-    if(!empty($artikel)){
-      $stoffen = $this->artikelDAO->searchStoffenByArtikel($_GET['id'], $artikel["stofLengte"], $artikel["stofBreedte"]);
-      $this->set('stoffen', $stoffen);
-    }
 
     $categorie = $artikel["categorie"];
     $this->set('currentPage', $categorie);
